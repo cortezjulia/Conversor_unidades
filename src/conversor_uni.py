@@ -2,14 +2,17 @@ while True:
     print('***Seja bem vindo ao conversor de unidades!***')
     print('**********************************************')
     print('************Escolha uma opção!****************')
-    print('Temperatura -->[1]         comprimento --> [2]')
-    print('Moeda -->[3]                      área --> [4]')
+    print('Temperatura -->[1]         Comprimento --> [2]')
+    print('Moeda -->[3]                      Área --> [4]')
+    print('Volume --> [5]                                ')
     print('                                              ')
     opcao_inicial=input('Insira o número correspondente: ')
-
-    if (opcao_inicial>='1') and (opcao_inicial<='5'):
+    int_opcao_inicial=int(opcao_inicial)
+    if (1<=int_opcao_inicial<=5):
+        print('Entrou aqui!')
         break
-    else:print('Insira uma opção válida!')
+    else:
+        print('Insira uma opção válida!')
 
 
 
@@ -94,7 +97,12 @@ if opcao_inicial=='2':
         print('m -->[1]      mm --> [2]      cm --> [3]')
         print('        km -->[4]      in --> [5]')
         recebe_uni_comp_desejada=input('Insira o número correspondente: ')
-
+        if recebe_uni_comp_desejada==recebe_uni_comp:
+            print('***********************************************')
+            print('Você escolheu a mesma unidade! Tente novamente:')
+            print('                                           ')
+            continue
+        
         if recebe_uni_comp_desejada=='1':
                 print(f'O comprimento de {recebe_comp:.2f}{uni_ini} corresponde a {comp_m:.2f} m.')
                 break
@@ -188,6 +196,12 @@ if opcao_inicial=='3':
         print('Euro --> [3]                 Libra Esterlina --> [4]')
         print('                                                    ')
         recebe_uni_moeda_desejada=input('Insira o número correspondente: ')
+        
+        if recebe_uni_moeda_desejada==recebe_uni_moeda:
+            print('***********************************************')
+            print('Você escolheu a mesma moeda! Tente novamente:')
+            print('                                           ')
+            continue
 
         if recebe_uni_moeda_desejada=='1':
             print(f'A quantia de {uni_ini} {recebe_moeda:.2f} corresponde a $ {dolar:.2f}.')
@@ -204,6 +218,66 @@ if opcao_inicial=='3':
             
         else:
             print('Você digitou um caractere inválido! Tente novamente:')
+
+if opcao_inicial=='4':
+    while True:
+        recebe_area=float(input('Insira o valor da área: '))
+        print('***Agora você vai escolher a unidade***')
+        print('mm2 -->[1]      cm2 --> [2]      m2 --> [3]')
+        print('                                           ')
+        recebe_uni_area=input('Insira o número correspondente: ')
+        
+        if recebe_uni_area=='1':#entrada em mm2
+            area_m2=recebe_area/1000000
+            area_cm2=recebe_area/100
+
+            uni_ini='mm2'
+            break
+        elif recebe_uni_area=='2':#entrada em cm2
+            area_m2=recebe_area/10000
+            area_mm2=recebe_area*100 
+
+            uni_ini='cm2'
+            break
+        elif recebe_uni_area=='3':#entrada em m2
+            area_mm2=recebe_area*1000000
+            area_cm2=recebe_area*10000
+
+            uni_ini='m2'
+            break
+        
+            
+        else:
+                print('Você digitou um caractere inválido! Tente novamente:')
+         
+
+    while True:
+        print('***Agora você vai escolher a unidade desejada***')
+        print('mm2 -->[1]      cm2 --> [2]      m2 --> [3]')
+        print('                                           ')
+        recebe_uni_area_desejada=input('Insira o número correspondente: ')
+
+        if recebe_uni_area_desejada==recebe_uni_area:
+            print('***********************************************')
+            print('Você escolheu a mesma unidade! Tente novamente:')
+            print('                                           ')
+            continue
+
+
+        if recebe_uni_area_desejada=='1':
+                print(f'A área de {recebe_area:.2f} {uni_ini} corresponde a {area_mm2:.4f} mm2.')
+                break
+        elif recebe_uni_area_desejada=='2':
+                print(f'A área de {recebe_area:.2f} {uni_ini} corresponde a {area_cm2:.4f} cm2.')
+                break
+        elif recebe_uni_area_desejada=='3':
+                print(f'A área de {recebe_area:.2f} {uni_ini} corresponde a {area_m2:.6f} m2.')
+                break
+        
+        else:
+                print('Você digitou um caractere inválido! Tente novamente:')
+                
+
         
 
 
