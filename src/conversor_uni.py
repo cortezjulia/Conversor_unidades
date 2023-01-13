@@ -9,11 +9,10 @@ while True:
     opcao_inicial=input('Insira o número correspondente: ')
     int_opcao_inicial=int(opcao_inicial)
     if (1<=int_opcao_inicial<=5):
-        print('Entrou aqui!')
         break
     else:
         print('Insira uma opção válida!')
-
+        print('                        ')
 
 
     if opcao_inicial=='1':
@@ -45,6 +44,11 @@ if opcao_inicial=='2':
    
     while True:
         recebe_comp=float(input('Insira o valor do comprimento: '))
+        if recebe_comp< 0.1:
+            print('Digite um valor maior ou mude de unidade!')
+            continue
+
+
         print('***Agora você vai escolher a unidade***')
         print('m -->[1]      mm --> [2]      cm --> [3]')
         print('        km -->[4]      in --> [5]')
@@ -222,6 +226,10 @@ if opcao_inicial=='3':
 if opcao_inicial=='4':
     while True:
         recebe_area=float(input('Insira o valor da área: '))
+        if recebe_comp< 0.1:
+            print('Digite um valor maior ou mude de unidade!')
+            continue
+
         print('***Agora você vai escolher a unidade***')
         print('mm2 -->[1]      cm2 --> [2]      m2 --> [3]')
         print('                                           ')
@@ -277,7 +285,81 @@ if opcao_inicial=='4':
         else:
                 print('Você digitou um caractere inválido! Tente novamente:')
                 
+if opcao_inicial=='5':
+    while True:
+        recebe_vol=float(input('Insira o valor do volume: '))
 
+        if recebe_comp< 0.1:
+            print('Digite um valor maior ou mude de unidade!')
+            continue
+        
+        print('***Agora você vai escolher a unidade***')
+        print('L -->[1]         mL --> [2]')
+        print('cm3 --> [3]      m3 --> [4]')
+        print('                                           ')
+        recebe_uni_vol=input('Insira o número correspondente: ')
+        
+        if recebe_uni_vol=='1':#entrada em L
+            vol_cm3=recebe_vol*1000
+            vol_m3=recebe_vol/1000
+            vol_ml=recebe_vol*1000
+
+            uni_ini='L'
+            break
+        elif recebe_uni_vol=='2':#entrada em mL
+            vol_cm3=recebe_vol
+            vol_m3=recebe_vol/1000000
+            vol_l=recebe_vol/1000
+
+            uni_ini='mL'
+            break
+        elif recebe_uni_vol=='3':#entrada em cm3
+            vol_l=recebe_vol/1000
+            vol_m3=recebe_vol/1000000
+            vol_ml=recebe_vol
+
+            uni_ini='cm3'
+            break
+        elif recebe_uni_vol=='4':#entrada em m3
+            vol_cm3=recebe_vol*1000000
+            vol_l=recebe_vol*1000
+            vol_ml=recebe_vol*1000000
+
+            uni_ini='m3'
+            break
+            
+        else:
+                print('Você digitou um caractere inválido! Tente novamente:')
+         
+
+    while True:
+        print('***Agora você vai escolher a unidade desejada***')
+        print('L -->[1]         mL --> [2]')
+        print('cm3 --> [3]      m3 --> [4]')
+        recebe_uni_vol_desejada=input('Insira o número correspondente: ')
+
+        if recebe_uni_vol_desejada==recebe_uni_vol:
+            print('***********************************************')
+            print('Você escolheu a mesma unidade! Tente novamente:')
+            print('                                           ')
+            continue
+
+
+        if recebe_uni_vol_desejada=='1':
+                print(f'O volume de {recebe_vol:.4f} {uni_ini} corresponde a {vol_l:.4f} L.')
+                break
+        elif recebe_uni_vol_desejada=='2':
+                print(f'O volume de {recebe_vol:.4f} {uni_ini} corresponde a {vol_ml:.4f} mL.')
+                break
+        elif recebe_uni_vol_desejada=='3':
+                print(f'O volume de {recebe_vol:.4f} {uni_ini} corresponde a {vol_cm3:.6f} cm3.')
+                break
+        elif recebe_uni_vol_desejada=='4':
+                print(f'O volume de {recebe_vol:.4f} {uni_ini} corresponde a {vol_m3:.6f} m3.')
+                break
+        else:
+                print('Você digitou um caractere inválido! Tente novamente:')
+                
         
 
 
