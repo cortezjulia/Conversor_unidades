@@ -1,24 +1,23 @@
 while True:
-    while True:
-        print('***Seja bem vindo ao conversor de unidades!***')
-        print('**********************************************')
-        print('************Escolha uma opção!****************')
-        print('Temperatura -->[1]         Comprimento --> [2]')
-        print('Moeda -->[3]                      Área --> [4]')
-        print('Volume --> [5]                                ')
-        print('                                              ')
-        opcao_inicial=input('Insira o número correspondente: ')
-        int_opcao_inicial=int(opcao_inicial)
-        if (1<=int_opcao_inicial<=5):
-            break    
-        else:
-            print('Insira uma opção válida!')
-            print('                        ')
-
+    
+    print('***Seja bem vindo ao conversor de unidades!***')
+    print('**********************************************')
+    print('************Escolha uma opção!****************')
+    print('Temperatura -->[1]         Comprimento --> [2]')
+    print('Moeda -->[3]                      Área --> [4]')
+    print('Volume --> [5]                                ')
+    print('                                              ')
+    opcao_inicial=input('Insira o número correspondente: ')
+        
 
     if opcao_inicial=='1':
-        while True:
+        
+        try:
             recebe_temp=float(input('Insira o valor da temperatura: '))
+        except:
+            print('Caractere errado foi inserido!')
+            continue
+        while True:
             print('***Agora você vai escolher a unidade***')
             print('ºC -->[1]      ºF --> [2]      K --> [3]')
             recebe_uni_temp=input('Insira o número correspondente: ')
@@ -43,18 +42,20 @@ while True:
 
     if opcao_inicial=='2':
     
-        while True:
+        
+        try: 
             recebe_comp=float(input('Insira o valor do comprimento: '))
-            if recebe_comp< 0.1:
-                print('Digite um valor maior ou mude de unidade!')
-                continue
+        except:
+            print('Caractere errado foi inserido!')
+            continue
 
-
+        
+        while True:
             print('***Agora você vai escolher a unidade***')
             print('m -->[1]      mm --> [2]      cm --> [3]')
             print('        km -->[4]      in --> [5]')
             recebe_uni_comp=input('Insira o número correspondente: ')
-            
+                
             if recebe_uni_comp=='1':#entrada em m
                 comp_mm=recebe_comp*1000
                 comp_cm=recebe_comp*100
@@ -90,10 +91,10 @@ while True:
                 comp_m=recebe_comp/39.37
                 uni_ini='in'
                 break
-                
+                    
             else:
-                    print('Você digitou um caractere inválido! Tente novamente:')
-            
+                print('Você digitou um caractere inválido! Tente novamente:')
+                
 
         
 
@@ -129,32 +130,44 @@ while True:
     if opcao_inicial=='3':
 
         while True:
-            atualiza_moeda=input('Você deseja atualizar o valor das moedas? [sim/nao]: ')
-            
-            if atualiza_moeda=='sim':
+            atualiza_moeda=input('Você deseja atualizar o valor das moedas? [s]im: ')\
+            .lower().startswith('s')
+    
+            if atualiza_moeda is True:
                 print('*****O Real Brasileiro é a referência (R$ 1.00)******')
                 print('***Agora você vai entrar com os valores das moedas***')
                 base_real=1.0
-                base_dolar=float(input('Entre com o valor atual do Dólar Americano: '))
-                base_euro=float(input('Entre com o valor atual do Euro: '))
-                base_libra=float(input('Entre com o valor atual da Libra Esterlina: '))
-                print('**********************Operação concluída**********************')
-                print('                                                              ')
-                break
+                try:
+                    base_dolar=float(input('Entre com o valor atual do Dólar Americano: '))
+                    base_euro=float(input('Entre com o valor atual do Euro: '))
+                    base_libra=float(input('Entre com o valor atual da Libra Esterlina: '))
 
-            elif atualiza_moeda=='nao':
+                    print('**********************Operação concluída**********************')
+                    print('                                                              ')
+                    break
+                except:
+                    print('Você inseriu cracteres errados. Vamos novamente!')
+                    continue
+
+            else:
+                print('Você optou por não atualizar!')
+                print('                             ')
                 base_libra=0.16
                 base_dolar=0.19
                 base_euro=0.18
                 base_real=1.0
-                break
+                
             
-            else:
-                print('Digite "sim" ou "nao"!')
+            
 
-        while True:  
-            print('                                                   ')
-            recebe_moeda=float(input('Insira o valor em dinheiro a ser convertido: '))
+          
+            
+            try:
+                recebe_moeda=float(input('Insira o valor em dinheiro a ser convertido: '))
+            except:
+                print('Caractere errado foi inserido!')
+                continue
+        while True:
             print('                                                   ')
             print('***********Qual é a moeda dessa quantia?************')
             print('Dólar Americano --> [1]      Real Brasileiro --> [2]')
@@ -226,12 +239,16 @@ while True:
 
     if opcao_inicial=='4':
       
-        while True:
+        
+        try:
             recebe_area=float(input('Insira o valor da área: '))
-            if recebe_comp< 0.1:
-                print('Digite um valor maior ou mude de unidade!')
-                continue
+        except:
+            print('Caractere errado foi inserido!')
+            continue
 
+            
+
+        while True:
             print('***Agora você vai escolher a unidade***')
             print('mm2 -->[1]      cm2 --> [2]      m2 --> [3]')
             print('                                           ')
@@ -289,13 +306,16 @@ while True:
                     
     if opcao_inicial=='5':
         
-        while True:
-            recebe_vol=float(input('Insira o valor do volume: '))
-
-            if recebe_comp< 0.1:
-                print('Digite um valor maior ou mude de unidade!')
-                continue
+        
             
+        try:
+            recebe_vol=float(input('Insira o valor do volume: '))
+            
+        except:
+            print('Caractere errado foi inserido!')
+            continue
+            
+        while True:    
             print('***Agora você vai escolher a unidade***')
             print('L -->[1]         mL --> [2]')
             print('cm3 --> [3]      m3 --> [4]')
@@ -362,17 +382,12 @@ while True:
                     break
             else:
                     print('Você digitou um caractere inválido! Tente novamente:')
+    else:
+        print('Você inseriu um caractere errado. Tente novamente!')
+        print('                                                  ')
+        continue
 
     sair=input('Quer sair? [s]im: ').lower().startswith('s')
     if sair is True:
         break
     
-
-    
-
-
-                   
-    
-
-
-
