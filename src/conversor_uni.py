@@ -5,7 +5,7 @@ while True:
     print('************Escolha uma opção!****************')
     print('Temperatura -->[1]         Comprimento --> [2]')
     print('Moeda -->[3]                      Área --> [4]')
-    print('Volume --> [5]                                ')
+    print('                 Volume --> [5]               ')
     print('                                              ')
     opcao_inicial=input('Insira o número correspondente: ')
         
