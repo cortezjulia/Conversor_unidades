@@ -1,5 +1,8 @@
+import os
+
+
 while True:
-    
+    os.system('cls')
     print('***Seja bem vindo ao conversor de unidades!***')
     print('**********************************************')
     print('************Escolha uma opção!****************')
@@ -11,7 +14,7 @@ while True:
         
 
     if opcao_inicial=='1':
-        
+        os.system('cls')
         try:
             recebe_temp=float(input('Insira o valor da temperatura: '))
         except:
@@ -40,8 +43,8 @@ while True:
             else:
                  print('Você digitou um caractere inválido! Tente novamente:')
 
-    if opcao_inicial=='2':
-    
+    elif opcao_inicial=='2':
+        os.system('cls')
         
         try: 
             recebe_comp=float(input('Insira o valor do comprimento: '))
@@ -51,6 +54,7 @@ while True:
 
         
         while True:
+            os.system('cls')
             print('***Agora você vai escolher a unidade***')
             print('m -->[1]      mm --> [2]      cm --> [3]')
             print('        km -->[4]      in --> [5]')
@@ -99,6 +103,7 @@ while True:
         
 
         while True:
+            os.system('cls')
             print('***Agora você vai escolher a unidade desejada***')
             print('m -->[1]      mm --> [2]      cm --> [3]')
             print('        km -->[4]      in --> [5]')
@@ -127,9 +132,10 @@ while True:
             else:
                     print('Você digitou um caractere inválido! Tente novamente:')
                     
-    if opcao_inicial=='3':
-
+    elif opcao_inicial=='3':
+        os.system('cls')
         while True:
+            os.system('cls')
             atualiza_moeda=input('Você deseja atualizar o valor das moedas? [s]im: ')\
             .lower().startswith('s')
     
@@ -168,6 +174,7 @@ while True:
                 print('Caractere errado foi inserido!')
                 continue
         while True:
+            os.system('cls')
             print('                                                   ')
             print('***********Qual é a moeda dessa quantia?************')
             print('Dólar Americano --> [1]      Real Brasileiro --> [2]')
@@ -207,7 +214,8 @@ while True:
             
             else:
                 print('Você digitou um caractere inválido! Tente novamente:')
-        while True:       
+        while True: 
+            os.system('cls')      
             print('                                                    ')
             print('*****Agora você vai escolher a Moeda desejada*******')
             print('Dólar Americano --> [1]      Real Brasileiro --> [2]')
@@ -237,8 +245,8 @@ while True:
             else:
                 print('Você digitou um caractere inválido! Tente novamente:')
 
-    if opcao_inicial=='4':
-      
+    elif opcao_inicial=='4':
+        os.system('cls')
         
         try:
             recebe_area=float(input('Insira o valor da área: '))
@@ -249,6 +257,7 @@ while True:
             
 
         while True:
+            os.system('cls')
             print('***Agora você vai escolher a unidade***')
             print('mm2 -->[1]      cm2 --> [2]      m2 --> [3]')
             print('                                           ')
@@ -279,6 +288,7 @@ while True:
             
 
         while True:
+            os.system('cls')
             print('***Agora você vai escolher a unidade desejada***')
             print('mm2 -->[1]      cm2 --> [2]      m2 --> [3]')
             print('                                           ')
@@ -304,8 +314,8 @@ while True:
             else:
                     print('Você digitou um caractere inválido! Tente novamente:')
                     
-    if opcao_inicial=='5':
-        
+    elif opcao_inicial=='5':
+        os.system('cls')
         
             
         try:
@@ -315,7 +325,8 @@ while True:
             print('Caractere errado foi inserido!')
             continue
             
-        while True:    
+        while True: 
+            os.system('cls')   
             print('***Agora você vai escolher a unidade***')
             print('L -->[1]         mL --> [2]')
             print('cm3 --> [3]      m3 --> [4]')
@@ -356,6 +367,7 @@ while True:
             
 
         while True:
+            os.system('cls')
             print('***Agora você vai escolher a unidade desejada***')
             print('L -->[1]         mL --> [2]')
             print('cm3 --> [3]      m3 --> [4]')
@@ -385,7 +397,7 @@ while True:
     else:
         print('Você inseriu um caractere errado. Tente novamente!')
         print('                                                  ')
-        continue
+        break
 
     sair=input('Quer sair? [s]im: ').lower().startswith('s')
     if sair is True:
